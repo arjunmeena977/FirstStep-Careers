@@ -5,12 +5,14 @@ import FilterBar from '@/components/FilterBar';
 import CTASection from '@/components/CTASection';
 import { Job, LocationType } from '@/types';
 import { useJobFilters } from '@/hooks/useJobFilters';
-import jobsData from '@/data/jobs.json';
+import { useToast } from '@/hooks/use-toast';
 
 const LocationFilter = () => {
   const params = useParams<{ location?: string }>();
   const locationValue = (params.location || 'Any Location') as LocationType;
   const [jobs, setJobs] = useState<Job[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const { toast } = useToast();
   
   const { 
     filters, 
@@ -22,14 +24,47 @@ const LocationFilter = () => {
   } = useJobFilters(jobs, { location: locationValue });
 
   useEffect(() => {
-    // Get all jobs
-    setJobs(jobsData);
+    const fetchJobs = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch('/api/jobs');
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch jobs data');
+        }
+        
+        const jobsData = await response.json();
+        
+        // Get all jobs
+        setJobs(jobsData);
+        
+        // Set the location filter based on URL parameter
+        if (params.location) {
+          updateLocation(params.location as LocationType);
+        }
+      } catch (error) {
+        console.error('Error fetching jobs:', error);
+        toast({
+          title: "Error loading jobs",
+          description: "Couldn't load the job listings for this location.",
+          variant: "destructive",
+        });
+        
+        // Fallback to local data if API fails
+        import('@/data/jobs.json').then((module) => {
+          const fallbackData = module.default;
+          setJobs(fallbackData);
+          if (params.location) {
+            updateLocation(params.location as LocationType);
+          }
+        });
+      } finally {
+        setIsLoading(false);
+      }
+    };
     
-    // Set the location filter based on URL parameter
-    if (params.location) {
-      updateLocation(params.location as LocationType);
-    }
-  }, [params.location]);
+    fetchJobs();
+  }, [params.location, toast, updateLocation]);
 
   return (
     <>
