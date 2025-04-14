@@ -8,7 +8,7 @@ export interface Job {
   deadline: string;
   location: string;
   link: string;
-  jobType: 'Full-time' | 'Part-time' | 'Internship' | 'Work From Home';
+  jobType: string; // To accommodate any job type from data
   tags: string[];
   batch?: string[];
   salary?: string;

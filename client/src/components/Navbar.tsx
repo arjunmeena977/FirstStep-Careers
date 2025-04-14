@@ -97,10 +97,16 @@ const Navbar = () => {
             </span>
           </Link>
           <Button 
-            onClick={() => window.scrollTo({
-              top: document.querySelector('section:last-child')?.offsetTop || 0,
-              behavior: 'smooth'
-            })}
+            onClick={() => {
+              const lastSection = document.querySelector('section:last-child');
+              if (lastSection) {
+                const top = lastSection.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({
+                  top,
+                  behavior: 'smooth'
+                });
+              }
+            }}
             className="block w-full px-3 py-2 mt-4 rounded-md text-base font-medium text-white bg-primary hover:bg-blue-700"
           >
             Subscribe for Alerts

@@ -59,8 +59,21 @@ export function useJobFilters(jobs: Job[], initialFilters?: Partial<JobFilters>)
           'Work From Home': 'Work From Home'
         };
         
-        // Case insensitive job type matching
-        if (job.jobType.toLowerCase() !== jobTypeMap[filters.jobType].toLowerCase()) {
+        // More flexible matching for job types
+        const selectedJobType = jobTypeMap[filters.jobType].toLowerCase();
+        const currentJobType = job.jobType.toLowerCase();
+
+        // Special handling for full-time vs full time
+        if (selectedJobType === 'full-time' && currentJobType === 'full time') {
+          return true;
+        }
+        
+        // Special handling for part-time vs part time
+        if (selectedJobType === 'part-time' && currentJobType === 'part time') {
+          return true;
+        }
+        
+        if (currentJobType !== selectedJobType) {
           return false;
         }
       }
