@@ -1,6 +1,12 @@
-import { JobFilters, BatchYear, LocationType, JobTypeFilter } from '@/types';
-import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { JobFilters, BatchYear, LocationType, JobTypeFilter } from "@/types";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface FilterBarProps {
   filters: JobFilters;
@@ -10,20 +16,20 @@ interface FilterBarProps {
   onJobTypeChange: (value: JobTypeFilter) => void;
 }
 
-const FilterBar = ({ 
-  filters, 
-  onSearchChange, 
-  onBatchChange, 
-  onLocationChange, 
-  onJobTypeChange 
+const FilterBar = ({
+  filters,
+  onSearchChange,
+  onBatchChange,
+  onLocationChange,
+  onJobTypeChange,
 }: FilterBarProps) => {
   return (
     <div className="bg-white p-4 rounded-lg shadow-sm mb-8 flex flex-wrap gap-4 items-center">
       <div className="flex-grow lg:flex-grow-0 w-full lg:w-auto">
         <div className="relative">
-          <Input 
-            type="text" 
-            placeholder="Search jobs..." 
+          <Input
+            type="text"
+            placeholder="Search jobs..."
             className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition"
             value={filters.search}
             onChange={(e) => onSearchChange(e.target.value)}
@@ -31,7 +37,7 @@ const FilterBar = ({
           <i className="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
         </div>
       </div>
-      
+
       <div className="flex flex-wrap gap-2 md:gap-4 w-full lg:w-auto">
         <Select
           value={filters.batch}
@@ -42,12 +48,15 @@ const FilterBar = ({
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="Any Batch">Any Batch</SelectItem>
+            <SelectItem value="2023">2020</SelectItem>
+            <SelectItem value="2023">2021</SelectItem>
+            <SelectItem value="2023">2022</SelectItem>
             <SelectItem value="2023">2023</SelectItem>
             <SelectItem value="2024">2024</SelectItem>
             <SelectItem value="2025">2025</SelectItem>
           </SelectContent>
         </Select>
-        
+
         <Select
           value={filters.location}
           onValueChange={(value) => onLocationChange(value as LocationType)}
@@ -62,10 +71,13 @@ const FilterBar = ({
             <SelectItem value="Hyderabad">Hyderabad</SelectItem>
             <SelectItem value="Chennai">Chennai</SelectItem>
             <SelectItem value="Mumbai">Mumbai</SelectItem>
+            <SelectItem value="Delhi">Delhi</SelectItem>
+            <SelectItem value="Pune">Pune</SelectItem>
+            <SelectItem value="Kolkata">Indore</SelectItem>
             <SelectItem value="Pan India">Pan India</SelectItem>
           </SelectContent>
         </Select>
-        
+
         <Select
           value={filters.jobType}
           onValueChange={(value) => onJobTypeChange(value as JobTypeFilter)}

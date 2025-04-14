@@ -1,0 +1,47 @@
+Project: Enhance the existing Next.js job board application to include an admin panel for dynamic job posting updates. The application should continue to use the existing jobs.json file for storing job data.
+
+Features:
+
+Admin Panel:
+Create a protected admin route (e.g., /admin).
+Implement basic user authentication (e.g., username/password) to access the admin panel.
+Design a user-friendly interface for managing job postings.
+Job Management:
+Add Job: Create a form to add new job postings with fields for company, title, description, location, etc.
+Edit Job: Allow admins to edit existing job postings.
+Delete Job: Allow admins to delete job postings.
+Data Storage: Update the jobs.json file with changes made through the admin panel.
+Frontend Updates:
+Ensure the frontend job board dynamically reflects changes made through the admin panel.
+Implement data fetching on the frontend to display updated job listings from jobs.json.
+Technical Requirements:
+
+Next.js: Continue using Next.js as the frontend framework.
+JSON Data: Maintain the jobs.json file for job data storage.
+No Backend (Simulated): Simulate backend functionality for data storage and retrieval.
+File System Access: Utilize Next.js API routes to read and write to the jobs.json file.
+Implementation Details:
+
+Admin Route:
+Create a /pages/admin directory for the admin panel components.
+Implement a login page (e.g., /pages/admin/login.js).
+Create a dashboard page (e.g., /pages/admin/dashboard.js) with job management features.
+API Routes:
+Create API routes in /pages/api to handle reading and writing to jobs.json.
+Implement routes for adding, editing, deleting, and fetching job data.
+Data Handling:
+Use fs module to read and write to jobs.json within API routes.
+Ensure data consistency and handle potential errors.
+Frontend Updates:
+Fetch job data from the API routes on the frontend.
+Use useState and useEffect hooks to manage and update job data.
+Implement a form to add and edit jobs.
+Implement delete functionality.
+Example API Routes:
+
+/pages/api/jobs.js:
+Handles GET requests to fetch all jobs.
+Handles POST requests to add new jobs.
+/pages/api/jobs/[id].js:
+Handles PUT requests to edit jobs.
+Handles DELETE requests to delete jobs.
