@@ -18,34 +18,34 @@ const Navbar = () => {
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center">
                 <i className="fa-solid fa-briefcase text-primary text-2xl mr-2"></i>
-                <span className="font-bold text-xl text-neutral-dark">FresherHunt</span>
+                <span className="font-bold text-xl text-neutral-dark">FirstStep Careers</span>
               </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-4">
               <Link href="/">
-                <a className={`px-3 py-2 text-sm font-medium ${isActiveLink('/') ? 'text-primary border-b-2 border-primary' : 'text-neutral-medium hover:text-primary transition'}`}>
+                <span className={`px-3 py-2 text-sm font-medium cursor-pointer ${isActiveLink('/') ? 'text-primary border-b-2 border-primary' : 'text-neutral-medium hover:text-primary transition'}`}>
                   Home
-                </a>
+                </span>
               </Link>
               <Link href="/off-campus-drives">
-                <a className={`px-3 py-2 text-sm font-medium ${isActiveLink('/off-campus-drives') ? 'text-primary border-b-2 border-primary' : 'text-neutral-medium hover:text-primary transition'}`}>
+                <span className={`px-3 py-2 text-sm font-medium cursor-pointer ${isActiveLink('/off-campus-drives') ? 'text-primary border-b-2 border-primary' : 'text-neutral-medium hover:text-primary transition'}`}>
                   Off-Campus Drives
-                </a>
+                </span>
               </Link>
               <Link href="/work-from-home">
-                <a className={`px-3 py-2 text-sm font-medium ${isActiveLink('/work-from-home') ? 'text-primary border-b-2 border-primary' : 'text-neutral-medium hover:text-primary transition'}`}>
+                <span className={`px-3 py-2 text-sm font-medium cursor-pointer ${isActiveLink('/work-from-home') ? 'text-primary border-b-2 border-primary' : 'text-neutral-medium hover:text-primary transition'}`}>
                   Work From Home
-                </a>
+                </span>
               </Link>
               <Link href="/internships">
-                <a className={`px-3 py-2 text-sm font-medium ${isActiveLink('/internships') ? 'text-primary border-b-2 border-primary' : 'text-neutral-medium hover:text-primary transition'}`}>
+                <span className={`px-3 py-2 text-sm font-medium cursor-pointer ${isActiveLink('/internships') ? 'text-primary border-b-2 border-primary' : 'text-neutral-medium hover:text-primary transition'}`}>
                   Internships
-                </a>
+                </span>
               </Link>
               <Link href="/youtube">
-                <a className={`px-3 py-2 text-sm font-medium ${isActiveLink('/youtube') ? 'text-primary border-b-2 border-primary' : 'text-neutral-medium hover:text-primary transition'}`}>
+                <span className={`px-3 py-2 text-sm font-medium cursor-pointer ${isActiveLink('/youtube') ? 'text-primary border-b-2 border-primary' : 'text-neutral-medium hover:text-primary transition'}`}>
                   YouTube
-                </a>
+                </span>
               </Link>
             </div>
           </div>
@@ -72,31 +72,37 @@ const Navbar = () => {
       <div className={`sm:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}>
         <div className="px-2 pt-2 pb-3 space-y-1">
           <Link href="/">
-            <a className={`block px-3 py-2 rounded-md text-base font-medium ${isActiveLink('/') ? 'text-primary bg-blue-50' : 'text-neutral-medium hover:bg-gray-50 hover:text-primary'}`}>
+            <span className={`block px-3 py-2 rounded-md text-base font-medium cursor-pointer ${isActiveLink('/') ? 'text-primary bg-blue-50' : 'text-neutral-medium hover:bg-gray-50 hover:text-primary'}`}>
               Home
-            </a>
+            </span>
           </Link>
           <Link href="/off-campus-drives">
-            <a className={`block px-3 py-2 rounded-md text-base font-medium ${isActiveLink('/off-campus-drives') ? 'text-primary bg-blue-50' : 'text-neutral-medium hover:bg-gray-50 hover:text-primary'}`}>
+            <span className={`block px-3 py-2 rounded-md text-base font-medium cursor-pointer ${isActiveLink('/off-campus-drives') ? 'text-primary bg-blue-50' : 'text-neutral-medium hover:bg-gray-50 hover:text-primary'}`}>
               Off-Campus Drives
-            </a>
+            </span>
           </Link>
           <Link href="/work-from-home">
-            <a className={`block px-3 py-2 rounded-md text-base font-medium ${isActiveLink('/work-from-home') ? 'text-primary bg-blue-50' : 'text-neutral-medium hover:bg-gray-50 hover:text-primary'}`}>
+            <span className={`block px-3 py-2 rounded-md text-base font-medium cursor-pointer ${isActiveLink('/work-from-home') ? 'text-primary bg-blue-50' : 'text-neutral-medium hover:bg-gray-50 hover:text-primary'}`}>
               Work From Home
-            </a>
+            </span>
           </Link>
           <Link href="/internships">
-            <a className={`block px-3 py-2 rounded-md text-base font-medium ${isActiveLink('/internships') ? 'text-primary bg-blue-50' : 'text-neutral-medium hover:bg-gray-50 hover:text-primary'}`}>
+            <span className={`block px-3 py-2 rounded-md text-base font-medium cursor-pointer ${isActiveLink('/internships') ? 'text-primary bg-blue-50' : 'text-neutral-medium hover:bg-gray-50 hover:text-primary'}`}>
               Internships
-            </a>
+            </span>
           </Link>
           <Link href="/youtube">
-            <a className={`block px-3 py-2 rounded-md text-base font-medium ${isActiveLink('/youtube') ? 'text-primary bg-blue-50' : 'text-neutral-medium hover:bg-gray-50 hover:text-primary'}`}>
+            <span className={`block px-3 py-2 rounded-md text-base font-medium cursor-pointer ${isActiveLink('/youtube') ? 'text-primary bg-blue-50' : 'text-neutral-medium hover:bg-gray-50 hover:text-primary'}`}>
               YouTube
-            </a>
+            </span>
           </Link>
-          <Button className="block w-full px-3 py-2 mt-4 rounded-md text-base font-medium text-white bg-primary hover:bg-blue-700">
+          <Button 
+            onClick={() => window.scrollTo({
+              top: document.querySelector('section:last-child')?.offsetTop || 0,
+              behavior: 'smooth'
+            })}
+            className="block w-full px-3 py-2 mt-4 rounded-md text-base font-medium text-white bg-primary hover:bg-blue-700"
+          >
             Subscribe for Alerts
           </Button>
         </div>

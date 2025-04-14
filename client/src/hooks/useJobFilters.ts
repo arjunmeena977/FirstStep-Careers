@@ -10,17 +10,30 @@ export function useJobFilters(jobs: Job[], initialFilters?: Partial<JobFilters>)
     ...initialFilters,
   });
 
+  // Ensure we're working with the most updated filters in the filtering logic
+  useEffect(() => {
+    if (initialFilters) {
+      setFilters(prev => ({
+        ...prev,
+        ...initialFilters
+      }));
+    }
+  }, [initialFilters]);
+
   const filteredJobs = useMemo(() => {
     return jobs.filter(job => {
       // Search filter
-      if (filters.search && !job.title.toLowerCase().includes(filters.search.toLowerCase()) && 
+      if (filters.search && 
+          !job.title.toLowerCase().includes(filters.search.toLowerCase()) && 
           !job.company.toLowerCase().includes(filters.search.toLowerCase()) &&
-          !job.description.toLowerCase().includes(filters.search.toLowerCase())) {
+          !job.description.toLowerCase().includes(filters.search.toLowerCase()) &&
+          !job.location.toLowerCase().includes(filters.search.toLowerCase())) {
         return false;
       }
 
       // Batch filter
       if (filters.batch !== 'Any Batch') {
+        // Handle case where batch is undefined or doesn't include the selected batch
         if (!job.batch || !job.batch.includes(filters.batch)) {
           return false;
         }
@@ -28,7 +41,10 @@ export function useJobFilters(jobs: Job[], initialFilters?: Partial<JobFilters>)
 
       // Location filter
       if (filters.location !== 'Any Location') {
-        if (!job.location.includes(filters.location)) {
+        // Case insensitive check for location
+        const jobLocation = job.location.toLowerCase();
+        const filterLocation = filters.location.toLowerCase();
+        if (!jobLocation.includes(filterLocation)) {
           return false;
         }
       }
@@ -43,7 +59,8 @@ export function useJobFilters(jobs: Job[], initialFilters?: Partial<JobFilters>)
           'Work From Home': 'Work From Home'
         };
         
-        if (job.jobType !== jobTypeMap[filters.jobType]) {
+        // Case insensitive job type matching
+        if (job.jobType.toLowerCase() !== jobTypeMap[filters.jobType].toLowerCase()) {
           return false;
         }
       }

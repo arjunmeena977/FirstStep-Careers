@@ -17,15 +17,7 @@ const Home = () => {
   const [internships, setInternships] = useState<Job[]>([]);
   const [videos, setVideos] = useState<VideoType[]>([]);
   
-  const { 
-    filters, 
-    filteredJobs, 
-    updateSearch, 
-    updateBatch, 
-    updateLocation, 
-    updateJobType 
-  } = useJobFilters(featuredJobs);
-
+  // Initialize with some data to prevent empty state
   useEffect(() => {
     // Get top 6 jobs to feature
     setFeaturedJobs(jobsData.slice(0, 6));
@@ -39,6 +31,16 @@ const Home = () => {
     // Get 3 videos
     setVideos(videosData.slice(0, 3));
   }, []);
+  
+  // Use the filter hooks after setting up the initial state
+  const { 
+    filters, 
+    filteredJobs, 
+    updateSearch, 
+    updateBatch, 
+    updateLocation, 
+    updateJobType 
+  } = useJobFilters(featuredJobs);
 
   return (
     <>
