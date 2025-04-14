@@ -14,7 +14,8 @@ import { useToast } from '@/hooks/use-toast';
 import { Job } from '@/types';
 import { Dialog, DialogContent, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import AdminJobForm from '@/components/AdminJobForm';
+// Import using relative path to avoid module resolution issues
+import AdminJobForm from '../../components/AdminJobForm';
 
 const AdminDashboard = () => {
   const [, setLocation] = useLocation();
