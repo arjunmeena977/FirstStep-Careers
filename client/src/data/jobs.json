@@ -10,8 +10,14 @@
     "location": "Hyderabad, Bangalore",
     "link": "https://careers.microsoft.com",
     "jobType": "Full-time",
-    "tags": ["Full-time", "Fresher"],
-    "batch": ["2023", "2024"]
+    "tags": [
+      "Full-time",
+      "Fresher"
+    ],
+    "batch": [
+      "2023",
+      "2024"
+    ]
   },
   {
     "id": 2,
@@ -24,8 +30,13 @@
     "location": "Bangalore",
     "link": "https://www.amazon.jobs",
     "jobType": "Full-time",
-    "tags": ["Full-time", "Fresher"],
-    "batch": ["2023"]
+    "tags": [
+      "Full-time",
+      "Fresher"
+    ],
+    "batch": [
+      "2023"
+    ]
   },
   {
     "id": 3,
@@ -38,8 +49,14 @@
     "location": "Pan India",
     "link": "https://www.infosys.com/careers",
     "jobType": "Full-time",
-    "tags": ["Full-time", "Fresher"],
-    "batch": ["2023", "2024"]
+    "tags": [
+      "Full-time",
+      "Fresher"
+    ],
+    "batch": [
+      "2023",
+      "2024"
+    ]
   },
   {
     "id": 4,
@@ -52,8 +69,14 @@
     "location": "Bangalore, Chennai, Hyderabad",
     "link": "https://careers.wipro.com",
     "jobType": "Full-time",
-    "tags": ["Full-time", "Fresher"],
-    "batch": ["2023", "2024"]
+    "tags": [
+      "Full-time",
+      "Fresher"
+    ],
+    "batch": [
+      "2023",
+      "2024"
+    ]
   },
   {
     "id": 5,
@@ -66,8 +89,15 @@
     "location": "Pan India",
     "link": "https://www.accenture.com/careers",
     "jobType": "Full-time",
-    "tags": ["Full-time", "Fresher"],
-    "batch": ["2023", "2024", "2025"]
+    "tags": [
+      "Full-time",
+      "Fresher"
+    ],
+    "batch": [
+      "2023",
+      "2024",
+      "2025"
+    ]
   },
   {
     "id": 6,
@@ -80,8 +110,14 @@
     "location": "Pan India",
     "link": "https://www.tcs.com/careers",
     "jobType": "Full-time",
-    "tags": ["Full-time", "Fresher"],
-    "batch": ["2023", "2024"]
+    "tags": [
+      "Full-time",
+      "Fresher"
+    ],
+    "batch": [
+      "2023",
+      "2024"
+    ]
   },
   {
     "id": 7,
@@ -94,8 +130,14 @@
     "location": "Remote",
     "link": "https://careers.zohocorp.com",
     "jobType": "Work From Home",
-    "tags": ["Full-time", "₹4-6 LPA"],
-    "batch": ["2023", "2024"],
+    "tags": [
+      "Full-time",
+      "₹4-6 LPA"
+    ],
+    "batch": [
+      "2023",
+      "2024"
+    ],
     "salary": "₹4-6 LPA"
   },
   {
@@ -109,8 +151,14 @@
     "location": "Remote",
     "link": "https://www.freshworks.com/company/careers",
     "jobType": "Work From Home",
-    "tags": ["Full-time", "₹3-5 LPA"],
-    "batch": ["2022", "2023"],
+    "tags": [
+      "Full-time",
+      "₹3-5 LPA"
+    ],
+    "batch": [
+      "2022",
+      "2023"
+    ],
     "salary": "₹3-5 LPA"
   },
   {
@@ -124,8 +172,15 @@
     "location": "Bangalore",
     "link": "https://careers.google.com",
     "jobType": "Internship",
-    "tags": ["Internship", "₹25,000/month"],
-    "batch": ["2023", "2024", "2025"],
+    "tags": [
+      "Internship",
+      "₹25,000/month"
+    ],
+    "batch": [
+      "2023",
+      "2024",
+      "2025"
+    ],
     "salary": "₹25,000/month",
     "duration": "3 months"
   },
@@ -140,8 +195,14 @@
     "location": "Bangalore",
     "link": "https://www.flipkartcareers.com",
     "jobType": "Internship",
-    "tags": ["Internship", "₹30,000/month"],
-    "batch": ["2023", "2024"],
+    "tags": [
+      "Internship",
+      "₹30,000/month"
+    ],
+    "batch": [
+      "2023",
+      "2024"
+    ],
     "salary": "₹30,000/month",
     "duration": "6 months"
   },
@@ -156,8 +217,15 @@
     "location": "Bangalore, Hyderabad",
     "link": "https://careers.swiggy.com",
     "jobType": "Internship",
-    "tags": ["Internship", "₹35,000/month"],
-    "batch": ["2023", "2024", "2025"],
+    "tags": [
+      "Internship",
+      "₹35,000/month"
+    ],
+    "batch": [
+      "2023",
+      "2024",
+      "2025"
+    ],
     "salary": "₹35,000/month",
     "duration": "4 months"
   },
@@ -172,8 +240,13 @@
     "location": "Hyderabad, Bangalore, Pune",
     "link": "https://www.ibm.com/careers",
     "jobType": "Full-time",
-    "tags": ["Full-time", "Fresher"],
-    "batch": ["2023"]
+    "tags": [
+      "Full-time",
+      "Fresher"
+    ],
+    "batch": [
+      "2023"
+    ]
   },
   {
     "id": 13,
@@ -186,8 +259,14 @@
     "location": "Pan India",
     "link": "https://www.capgemini.com/careers",
     "jobType": "Full-time",
-    "tags": ["Full-time", "Fresher"],
-    "batch": ["2023", "2024"]
+    "tags": [
+      "Full-time",
+      "Fresher"
+    ],
+    "batch": [
+      "2023",
+      "2024"
+    ]
   },
   {
     "id": 14,
@@ -200,8 +279,14 @@
     "location": "Chennai, Bangalore, Hyderabad, Pune",
     "link": "https://careers.cognizant.com",
     "jobType": "Full-time",
-    "tags": ["Full-time", "Fresher"],
-    "batch": ["2023", "2024"]
+    "tags": [
+      "Full-time",
+      "Fresher"
+    ],
+    "batch": [
+      "2023",
+      "2024"
+    ]
   },
   {
     "id": 15,
@@ -214,8 +299,13 @@
     "location": "Mumbai, Bangalore, Hyderabad",
     "link": "https://www2.deloitte.com/global/en/careers/job-search.html",
     "jobType": "Full-time",
-    "tags": ["Full-time", "Fresher"],
-    "batch": ["2023"]
+    "tags": [
+      "Full-time",
+      "Fresher"
+    ],
+    "batch": [
+      "2023"
+    ]
   },
   {
     "id": 16,
@@ -228,8 +318,15 @@
     "location": "Remote",
     "link": "https://razorpay.com/jobs",
     "jobType": "Work From Home",
-    "tags": ["Content", "₹4-5 LPA"],
-    "batch": ["2022", "2023", "2024"],
+    "tags": [
+      "Content",
+      "₹4-5 LPA"
+    ],
+    "batch": [
+      "2022",
+      "2023",
+      "2024"
+    ],
     "salary": "₹4-5 LPA"
   },
   {
@@ -243,8 +340,14 @@
     "location": "Remote",
     "link": "https://careers.cred.club",
     "jobType": "Work From Home",
-    "tags": ["Customer Support", "₹3-4 LPA"],
-    "batch": ["2022", "2023"],
+    "tags": [
+      "Customer Support",
+      "₹3-4 LPA"
+    ],
+    "batch": [
+      "2022",
+      "2023"
+    ],
     "salary": "₹3-4 LPA"
   },
   {
@@ -258,26 +361,16 @@
     "location": "Bangalore",
     "link": "https://www.olacabs.com/careers",
     "jobType": "Internship",
-    "tags": ["Internship", "₹20,000/month"],
-    "batch": ["2023", "2024"],
+    "tags": [
+      "Internship",
+      "₹20,000/month"
+    ],
+    "batch": [
+      "2023",
+      "2024"
+    ],
     "salary": "₹20,000/month",
     "duration": "3 months"
-  },
-  {
-    "id": 19,
-    "company": "PayTM",
-    "logo": "https://logo.clearbit.com/paytm.com",
-    "title": "Business Analyst Intern",
-    "description": "Work with our product teams to analyze market trends, user behavior, and business metrics to drive product decisions.",
-    "eligibility": "BBA/MBA/Economics (2023-2025)",
-    "deadline": "July 5, 2023",
-    "location": "Delhi NCR",
-    "link": "https://paytm.com/careers",
-    "jobType": "Internship",
-    "tags": ["Internship", "₹25,000/month"],
-    "batch": ["2023", "2024", "2025"],
-    "salary": "₹25,000/month",
-    "duration": "5 months"
   },
   {
     "id": 20,
@@ -290,7 +383,35 @@
     "location": "Noida, Chennai, Bangalore",
     "link": "https://www.hcltech.com/careers",
     "jobType": "Full-time",
-    "tags": ["Full-time", "Fresher"],
-    "batch": ["2023"]
+    "tags": [
+      "Full-time",
+      "Fresher"
+    ],
+    "batch": [
+      "2023"
+    ]
+  },
+  {
+    "company": "ultraxpert",
+    "logo": "https://logo.clearbit.com/ultrat.com",
+    "title": "software  engineer ",
+    "description": "Join our training program designed to transform fresh graduates into IT professionals through rigorous technical and soft skills training.",
+    "eligibility": "graduation ",
+    "deadline": "July 5, 2024",
+    "location": "Chennai",
+    "link": "https://www.ultraxpert.in/",
+    "jobType": "Full-time",
+    "salary": "₹25,000/month",
+    "duration": "3 months",
+    "batch": [
+      "2024",
+      "2025"
+    ],
+    "tags": [
+      "Internship",
+      "₹25",
+      "000/month"
+    ],
+    "id": 23
   }
 ]

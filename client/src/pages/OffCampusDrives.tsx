@@ -4,10 +4,12 @@ import FilterBar from '@/components/FilterBar';
 import CTASection from '@/components/CTASection';
 import { Job } from '@/types';
 import { useJobFilters } from '@/hooks/useJobFilters';
-import jobsData from '@/data/jobs.json';
+import { useToast } from '@/hooks/use-toast';
 
 const OffCampusDrives = () => {
   const [jobs, setJobs] = useState<Job[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const { toast } = useToast();
   
   const { 
     filters, 
@@ -19,9 +21,43 @@ const OffCampusDrives = () => {
   } = useJobFilters(jobs, { jobType: 'Full Time' });
 
   useEffect(() => {
-    // Get all off-campus drive jobs
-    setJobs(jobsData.filter(job => job.jobType === 'Full-time'));
-  }, []);
+    const fetchJobs = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch('/api/jobs');
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch jobs data');
+        }
+        
+        const jobsData = await response.json();
+        
+        // Get all off-campus drive jobs
+        setJobs(jobsData.filter((job: Job) => 
+          job.jobType.toLowerCase() === 'full-time' || 
+          job.jobType.toLowerCase() === 'full time'));
+      } catch (error) {
+        console.error('Error fetching jobs:', error);
+        toast({
+          title: "Error loading jobs",
+          description: "Couldn't load the off-campus job listings.",
+          variant: "destructive",
+        });
+        
+        // Fallback to local data if API fails
+        import('@/data/jobs.json').then((module) => {
+          const fallbackData = module.default;
+          setJobs(fallbackData.filter((job: Job) => 
+            job.jobType.toLowerCase() === 'full-time' || 
+            job.jobType.toLowerCase() === 'full time'));
+        });
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    fetchJobs();
+  }, [toast]);
 
   return (
     <>

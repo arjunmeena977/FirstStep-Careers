@@ -8,29 +8,67 @@ import YouTubeVideo from '@/components/YouTubeVideo';
 import CTASection from '@/components/CTASection';
 import { Job, YouTubeVideo as VideoType } from '@/types';
 import { useJobFilters } from '@/hooks/useJobFilters';
-import jobsData from '@/data/jobs.json';
+import { useToast } from '@/hooks/use-toast';
 import videosData from '@/data/videos.json';
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [featuredJobs, setFeaturedJobs] = useState<Job[]>([]);
   const [wfhJobs, setWfhJobs] = useState<Job[]>([]);
   const [internships, setInternships] = useState<Job[]>([]);
   const [videos, setVideos] = useState<VideoType[]>([]);
+  const { toast } = useToast();
   
-  // Initialize with some data to prevent empty state
+  // Fetch job data from API
   useEffect(() => {
-    // Get top 6 jobs to feature
-    setFeaturedJobs(jobsData.slice(0, 6));
+    const fetchJobs = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch('/api/jobs');
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch jobs data');
+        }
+        
+        const jobsData = await response.json();
+        
+        // Get top 6 jobs to feature
+        setFeaturedJobs(jobsData.slice(0, 6));
+        
+        // Get 2 work from home jobs
+        setWfhJobs(jobsData.filter((job: Job) => 
+          job.jobType.toLowerCase() === 'work from home').slice(0, 2));
+        
+        // Get 3 internships
+        setInternships(jobsData.filter((job: Job) => 
+          job.jobType.toLowerCase() === 'internship').slice(0, 3));
+        
+        // Get 3 videos
+        setVideos(videosData.slice(0, 3));
+      } catch (error) {
+        console.error('Error fetching jobs:', error);
+        toast({
+          title: "Error loading jobs",
+          description: "Couldn't load the latest job listings.",
+          variant: "destructive",
+        });
+        
+        // Fallback to local data if API fails
+        import('@/data/jobs.json').then((module) => {
+          const fallbackData = module.default;
+          setFeaturedJobs(fallbackData.slice(0, 6));
+          setWfhJobs(fallbackData.filter((job: Job) => 
+            job.jobType.toLowerCase() === 'work from home').slice(0, 2));
+          setInternships(fallbackData.filter((job: Job) => 
+            job.jobType.toLowerCase() === 'internship').slice(0, 3));
+        });
+      } finally {
+        setIsLoading(false);
+      }
+    };
     
-    // Get 2 work from home jobs
-    setWfhJobs(jobsData.filter(job => job.jobType === 'Work From Home').slice(0, 2));
-    
-    // Get 3 internships
-    setInternships(jobsData.filter(job => job.jobType === 'Internship').slice(0, 3));
-    
-    // Get 3 videos
-    setVideos(videosData.slice(0, 3));
-  }, []);
+    fetchJobs();
+  }, [toast]);
   
   // Use the filter hooks after setting up the initial state
   const { 
