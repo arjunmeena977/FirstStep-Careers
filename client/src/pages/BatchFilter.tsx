@@ -15,7 +15,7 @@ const BatchFilter = () => {
   const { toast } = useToast();
   
   const { 
-    filters, 
+    filters,
     filteredJobs, 
     updateSearch, 
     updateBatch, 

@@ -47,7 +47,7 @@ const FilterBar = ({
             <SelectValue placeholder="Any Batch" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="Any Batch">Any Batch</SelectItem>
+            <SelectItem value="Any Batch">Batch</SelectItem>
             <SelectItem value="2023">2020</SelectItem>
             <SelectItem value="2023">2021</SelectItem>
             <SelectItem value="2023">2022</SelectItem>
@@ -65,7 +65,7 @@ const FilterBar = ({
             <SelectValue placeholder="Any Location" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="Any Location">Any Location</SelectItem>
+            <SelectItem value="Any Location">Location</SelectItem>
             <SelectItem value="Remote">Remote</SelectItem>
             <SelectItem value="Bangalore">Bangalore</SelectItem>
             <SelectItem value="Hyderabad">Hyderabad</SelectItem>

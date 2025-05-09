@@ -1,13 +1,33 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Button } from '@/components/ui/button';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { BatchYear, LocationType } from '@/types';
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [location] = useLocation();
+  const [selectedBatch, setSelectedBatch] = useState<BatchYear>('Any Batch');
+  const [selectedLocation, setSelectedLocation] = useState<LocationType>('Any Location');
 
   const isActiveLink = (path: string) => {
     return location === path;
+  };
+
+  const handleBatchChange = (value: BatchYear) => {
+    setSelectedBatch(value);
+    // Add any additional logic you need when batch changes
+  };
+
+  const handleLocationChange = (value: LocationType) => {
+    setSelectedLocation(value);
+    // Add any additional logic you need when location changes
   };
 
   return (
@@ -47,6 +67,51 @@ const Navbar = () => {
                   YouTube
                 </span>
               </Link>
+              
+              {/* Batch Dropdown */}
+              <div className="px-3 py-2">
+                <Select
+                  value={selectedBatch}
+                  onValueChange={(value) => handleBatchChange(value as BatchYear)}
+                >
+                  <SelectTrigger className="border-none shadow-none focus:ring-0 text-sm font-medium px-0 h-auto">
+                    <SelectValue placeholder="Any Batch" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Any Batch">Batch</SelectItem>
+                    <SelectItem value="2020">2020</SelectItem>
+                    <SelectItem value="2021">2021</SelectItem>
+                    <SelectItem value="2022">2022</SelectItem>
+                    <SelectItem value="2023">2023</SelectItem>
+                    <SelectItem value="2024">2024</SelectItem>
+                    <SelectItem value="2025">2025</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              
+              {/* Location Dropdown */}
+              <div className="px-3 py-2">
+                <Select
+                  value={selectedLocation}
+                  onValueChange={(value) => handleLocationChange(value as LocationType)}
+                >
+                  <SelectTrigger className="border-none shadow-none focus:ring-0 text-sm font-medium px-0 h-auto">
+                    <SelectValue placeholder="Location" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="Any Location">Location</SelectItem>
+                    <SelectItem value="Remote">Remote</SelectItem>
+                    <SelectItem value="Bangalore">Bangalore</SelectItem>
+                    <SelectItem value="Hyderabad">Hyderabad</SelectItem>
+                    <SelectItem value="Chennai">Chennai</SelectItem>
+                    <SelectItem value="Mumbai">Mumbai</SelectItem>
+                    <SelectItem value="Delhi">Delhi</SelectItem>
+                    <SelectItem value="Pune">Pune</SelectItem>
+                    <SelectItem value="Indore">Indore</SelectItem>
+                    <SelectItem value="Pan India">Pan India</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
           </div>
           <div className="flex items-center">
@@ -96,6 +161,52 @@ const Navbar = () => {
               YouTube
             </span>
           </Link>
+          
+          {/* Mobile Batch Dropdown */}
+          <div className="px-3 py-2">
+            <Select
+              value={selectedBatch}
+              onValueChange={(value) => handleBatchChange(value as BatchYear)}
+            >
+              <SelectTrigger className="w-full text-left bg-transparent border-none shadow-none text-neutral-medium hover:bg-gray-50 hover:text-primary py-2">
+                <SelectValue placeholder="Any Batch" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Any Batch">Any Batch</SelectItem>
+                <SelectItem value="2020">2020</SelectItem>
+                <SelectItem value="2021">2021</SelectItem>
+                <SelectItem value="2022">2022</SelectItem>
+                <SelectItem value="2023">2023</SelectItem>
+                <SelectItem value="2024">2024</SelectItem>
+                <SelectItem value="2025">2025</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          
+          {/* Mobile Location Dropdown */}
+          <div className="px-3 py-2">
+            <Select
+              value={selectedLocation}
+              onValueChange={(value) => handleLocationChange(value as LocationType)}
+            >
+              <SelectTrigger className="w-full text-left bg-transparent border-none shadow-none text-neutral-medium hover:bg-gray-50 hover:text-primary py-2">
+                <SelectValue placeholder="Location" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Any Location">Any Location</SelectItem>
+                <SelectItem value="Remote">Remote</SelectItem>
+                <SelectItem value="Bangalore">Bangalore</SelectItem>
+                <SelectItem value="Hyderabad">Hyderabad</SelectItem>
+                <SelectItem value="Chennai">Chennai</SelectItem>
+                <SelectItem value="Mumbai">Mumbai</SelectItem>
+                <SelectItem value="Delhi">Delhi</SelectItem>
+                <SelectItem value="Pune">Pune</SelectItem>
+                <SelectItem value="Indore">Indore</SelectItem>
+                <SelectItem value="Pan India">Pan India</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          
           <Button 
             onClick={() => {
               const lastSection = document.querySelector('section:last-child');

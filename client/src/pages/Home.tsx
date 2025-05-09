@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import HeroSection from '@/components/HeroSection';
-import QuickLinks from '@/components/QuickLinks';
 import JobCard from '@/components/JobCard';
 import FilterBar from '@/components/FilterBar';
 import YouTubeVideo from '@/components/YouTubeVideo';
@@ -84,7 +83,7 @@ const Home = () => {
     <>
       <HeroSection />
       
-      <QuickLinks />
+      {/* <QuickLinks /> */}
       
       {/* Featured Jobs */}
       <section className="py-12 bg-gray-50">

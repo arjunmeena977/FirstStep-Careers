@@ -8,7 +8,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-4">
               <i className="fa-solid fa-briefcase text-primary text-2xl mr-2"></i>
-              <span className="font-bold text-xl">FresherHunt</span>
+              <span className="font-bold text-xl">FirstStep Careers</span>
             </div>
             <p className="text-gray-400 mb-4">
               Your one-stop platform for finding the best fresher jobs across India.
@@ -27,17 +27,6 @@ const Footer = () => {
                 <i className="fab fa-youtube text-lg"></i>
               </a>
             </div>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><Link href="/"><a className="text-gray-400 hover:text-white transition">Home</a></Link></li>
-              <li><Link href="/off-campus-drives"><a className="text-gray-400 hover:text-white transition">Off-Campus Drives</a></Link></li>
-              <li><Link href="/work-from-home"><a className="text-gray-400 hover:text-white transition">Work From Home</a></Link></li>
-              <li><Link href="/internships"><a className="text-gray-400 hover:text-white transition">Internships</a></Link></li>
-              <li><Link href="/youtube"><a className="text-gray-400 hover:text-white transition">YouTube</a></Link></li>
-            </ul>
           </div>
           
           <div>
