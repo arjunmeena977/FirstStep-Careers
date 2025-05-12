@@ -321,7 +321,7 @@ const AdminDashboard = () => {
       </main>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-2xl max-h-screen overflow-auto scrollbar-w">
           <DialogTitle>
             {editingJob ? 'Edit Job' : 'Add New Job'}
           </DialogTitle>

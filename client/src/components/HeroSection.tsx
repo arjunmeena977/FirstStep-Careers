@@ -9,8 +9,8 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ className, children, onClick }) => {
   return (
-    <button 
-      className={className} 
+    <button
+      className={className}
       onClick={onClick}
     >
       {children}
@@ -20,9 +20,10 @@ const Button: React.FC<ButtonProps> = ({ className, children, onClick }) => {
 
 const HeroSection = () => {
   const [showFilters, setShowFilters] = useState(false);
-  const [activePage, setActivePage] = useState(null);
-  const [selectedJob, setSelectedJob] = useState(null);
-  const [selectedCompany, setSelectedCompany] = useState(null);
+  const [activePage, setActivePage] = useState<string | null>(null);
+  const [selectedJob, setSelectedJob] = useState<string | null>(null);
+  const [selectedCompany, setSelectedCompany] = useState<string | null>(null);
+
   const [filteredView, setFilteredView] = useState(false);
 
   // Filter state
@@ -36,12 +37,12 @@ const HeroSection = () => {
     setShowFilters(!showFilters);
     // Only close active page if filters are being opened
     if (!showFilters) {
-      setActivePage(null); 
+      setActivePage(null);
     }
   };
 
   // Function to handle page navigation
-  const navigateTo = (page) => {
+  const navigateTo = (page: string) => {
     setActivePage(page);
     setShowFilters(false); // Hide filters when showing a page
     setSelectedJob(null); // Clear any selected job
@@ -49,7 +50,7 @@ const HeroSection = () => {
   };
 
   // Function to handle filter changes
-  const handleFilterChange = (filterType, value) => {
+  const handleFilterChange = (filterType: 'experience' | 'jobType' | 'location', value: string) => {
     setFilters({
       ...filters,
       [filterType]: value
@@ -63,12 +64,12 @@ const HeroSection = () => {
   };
 
   // Function to view job details
-  const viewJobDetails = (job) => {
+  const viewJobDetails = (job: string) => {
     setSelectedJob(job);
   };
 
   // Function to view company jobs
-  const viewCompanyJobs = (company) => {
+  const viewCompanyJobs = (company: string) => {
     setSelectedCompany(company);
     navigateTo('company-jobs');
   };
@@ -88,7 +89,7 @@ const HeroSection = () => {
           <p className="text-xl max-w-2xl mx-auto">
             Discover top opportunities for entry-level positions, internships, and more - all in one place.
           </p>
-          
+
           <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
             <a href="#" onClick={(e) => {
               e.preventDefault();
@@ -98,20 +99,20 @@ const HeroSection = () => {
                 <i className="fas fa-search mr-2"></i> Browse All Jobs
               </Button>
             </a>
-            <Button 
+            <Button
               className="inline-block bg-blue-700 text-white font-medium px-6 py-3 rounded-lg hover:bg-blue-800 transition"
               onClick={toggleFilters}
             >
               <i className="fas fa-filter mr-2"></i> Filter by Criteria
             </Button>
           </div>
-          
+
           {showFilters && (
             <div className="mt-4 bg-white/20 p-4 rounded-lg backdrop-blur-sm">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm font-medium mb-1">Experience Level</label>
-                  <select 
+                  <select
                     className="w-full p-2 rounded text-blue-800"
                     value={filters.experience}
                     onChange={(e) => handleFilterChange('experience', e.target.value)}
@@ -123,7 +124,7 @@ const HeroSection = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-1">Job Type</label>
-                  <select 
+                  <select
                     className="w-full p-2 rounded text-blue-800"
                     value={filters.jobType}
                     onChange={(e) => handleFilterChange('jobType', e.target.value)}
@@ -136,7 +137,7 @@ const HeroSection = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-1">Location</label>
-                  <select 
+                  <select
                     className="w-full p-2 rounded text-blue-800"
                     value={filters.location}
                     onChange={(e) => handleFilterChange('location', e.target.value)}
@@ -148,7 +149,7 @@ const HeroSection = () => {
                   </select>
                 </div>
               </div>
-              <Button 
+              <Button
                 className="mt-4 bg-yellow-500 text-blue-800 font-medium px-6 py-2 rounded-lg hover:bg-yellow-400 transition"
                 onClick={applyFilters}
               >
@@ -156,7 +157,7 @@ const HeroSection = () => {
               </Button>
             </div>
           )}
-          
+
           <div className="mt-12 bg-white/10 rounded-lg p-6 backdrop-blur-sm">
             <div className="flex flex-wrap justify-center gap-2 md:gap-4">
               <button onClick={() => navigateTo('active-jobs')} className="inline-flex items-center px-3 py-1 bg-white/20 rounded-full text-sm backdrop-blur-sm cursor-pointer hover:bg-white/30 transition border-0">
@@ -173,7 +174,7 @@ const HeroSection = () => {
               </button>
             </div>
           </div>
-          
+
           {/* Page Content Display */}
           {activePage === 'active-jobs' && !selectedJob && (
             <div className="mt-8 bg-white text-blue-800 p-6 rounded-lg">
@@ -201,11 +202,11 @@ const HeroSection = () => {
               </button>
             </div>
           )}
-          
+
           {activePage === 'active-jobs' && selectedJob && (
             <div className="mt-8 bg-white text-blue-800 p-6 rounded-lg">
               <h2 className="text-2xl font-bold mb-4">{selectedJob}</h2>
-              
+
               <div className="border-b pb-4 mb-4">
                 <p className="text-lg">XYZ Tech Solutions</p>
                 <div className="flex items-center mt-2 text-sm">
@@ -214,17 +215,17 @@ const HeroSection = () => {
                   <span><i className="fas fa-clock mr-1"></i> Full-time</span>
                 </div>
               </div>
-              
+
               <div className="mb-6">
                 <h3 className="font-medium text-lg mb-2">Job Description</h3>
                 <p className="text-gray-700 mb-3">
-                  We are looking for a passionate Software Developer Intern to join our dynamic team. 
+                  We are looking for a passionate Software Developer Intern to join our dynamic team.
                   This is an excellent opportunity for freshers to gain hands-on experience in a collaborative environment.
                 </p>
                 <p className="text-gray-700 mb-3">
                   You will work on real projects, learn from experienced developers, and make a meaningful impact.
                 </p>
-                
+
                 <h3 className="font-medium text-lg mt-4 mb-2">Requirements</h3>
                 <ul className="list-disc list-inside text-gray-700 mb-3">
                   <li>Basic knowledge of programming languages (Java, Python, JavaScript)</li>
@@ -233,7 +234,7 @@ const HeroSection = () => {
                   <li>Good communication skills</li>
                 </ul>
               </div>
-              
+
               <div className="flex space-x-3">
                 <button className="bg-green-500 text-white px-4 py-2 rounded"
                   onClick={() => alert(`Application submitted for ${selectedJob}!`)}
@@ -248,7 +249,7 @@ const HeroSection = () => {
               </div>
             </div>
           )}
-          
+
           {activePage === 'top-companies' && !selectedCompany && (
             <div className="mt-8 bg-white text-blue-800 p-6 rounded-lg">
               <h2 className="text-2xl font-bold mb-4">Top Companies</h2>
@@ -272,12 +273,12 @@ const HeroSection = () => {
               </button>
             </div>
           )}
-          
+
           {activePage === 'company-jobs' && selectedCompany && (
             <div className="mt-8 bg-white text-blue-800 p-6 rounded-lg">
               <h2 className="text-2xl font-bold mb-4">Jobs at {selectedCompany}</h2>
               <p className="mb-4">Explore the latest opportunities at {selectedCompany}.</p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {['Software Engineer', 'Product Manager', 'Data Scientist', 'UX Designer'].map(job => (
                   <div key={job} className="border border-gray-200 p-4 rounded-lg">
@@ -298,7 +299,7 @@ const HeroSection = () => {
               </button>
             </div>
           )}
-          
+
           {activePage === 'remote-jobs' && !selectedJob && (
             <div className="mt-8 bg-white text-blue-800 p-6 rounded-lg">
               <h2 className="text-2xl font-bold mb-4">Remote Options</h2>
@@ -339,17 +340,17 @@ const HeroSection = () => {
               </button>
             </div>
           )}
-          
+
           {activePage === 'quick-apply' && (
             <div className="mt-8 bg-white text-blue-800 p-6 rounded-lg">
               <h2 className="text-2xl font-bold mb-4">Quick Apply</h2>
               <p className="mb-4">Apply to multiple jobs with a single click after setting up your profile.</p>
-              
+
               <div className="bg-blue-50 p-4 rounded-lg mb-6">
                 <h3 className="text-lg font-medium mb-2">Your Profile</h3>
                 <p className="text-sm mb-4">Complete your profile to enable Quick Apply feature.</p>
                 <div className="progress h-2 bg-gray-200 rounded-full overflow-hidden mb-2">
-                  <div className="bg-green-500 h-full" style={{width: '70%'}}></div>
+                  <div className="bg-green-500 h-full" style={{ width: '70%' }}></div>
                 </div>
                 <p className="text-sm text-gray-600">Profile completion: 70%</p>
                 <button className="mt-3 bg-blue-500 text-white px-3 py-1 rounded text-sm"
@@ -361,7 +362,7 @@ const HeroSection = () => {
                   Complete Profile
                 </button>
               </div>
-              
+
               <h3 className="font-medium mb-3">Jobs with Quick Apply</h3>
               <div className="grid grid-cols-1 gap-4">
                 {['Junior Web Developer', 'Python Developer', 'Data Analyst', 'Marketing Associate'].map(job => (

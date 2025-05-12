@@ -435,25 +435,5 @@
       "000/month"
     ],
     "id": 24
-  },
-  {
-    "company": "demo",
-    "logo": "https://global.rakuten.com/corp/careers/",
-    "title": "frontend",
-    "description": "A job description is a written document that details the specific responsibilities, duties, and requirements of a particular job. ",
-    "eligibility": "all ",
-    "deadline": "Aprils 2025",
-    "location": "Mumbai",
-    "link": "https://global.rakuten.com/corp/",
-    "jobType": "Full-time",
-    "salary": "20 - 25k",
-    "duration": "6 month",
-    "batch": [
-      "2025"
-    ],
-    "tags": [
-      "remotes"
-    ],
-    "id": 25
   }
 ]

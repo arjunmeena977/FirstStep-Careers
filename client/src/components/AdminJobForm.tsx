@@ -90,7 +90,7 @@ const AdminJobForm = ({ job, onSubmit, onCancel }: AdminJobFormProps) => {
   };
 
   return (
-    <form onSubmit={form.handleSubmit(handleFormSubmit)} className="space-x-4  mt-4">
+    <form onSubmit={form.handleSubmit(handleFormSubmit)} className="space-y-4 mt-4 px-4 max-w-screen-lg mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
         <div className="space-y-2">
           <Label htmlFor="company">Company Name *</Label>
